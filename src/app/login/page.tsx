@@ -1,4 +1,6 @@
-import LoginForm from "app/components/LoginForm"
+"use client";
+
+import LoginForm from "../components/LoginForm/index"
 
 const LoginPage = () => {
   return (
