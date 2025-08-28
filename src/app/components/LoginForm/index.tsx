@@ -36,7 +36,7 @@ const LoginForm = (): JSX.Element => {
             <label htmlFor="name">Nome </label>
             <input 
               value={name}
-              onChange={handleSetEmail}
+              onChange={handleSetName}
               id="name" 
               type="text" 
               placeholder="Digite seu nome" 

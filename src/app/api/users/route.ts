@@ -1,10 +1,4 @@
-<<<<<<< HEAD
 import prisma from "../../../lib/prisma"
-=======
-"use server";
-
-import prisma from "@/lib/prisma";
->>>>>>> d996556 (feat: handle create user)
 
 export const GET = async () => {
   const users = await prisma.user.findMany();
@@ -17,9 +11,6 @@ export const POST = async (req: Request) => {
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
 
-  console.log("name: ", name)
-  console.log("email: ", email)
-  console.log("password: ", password)
   try {
     const newUser = await prisma.user.create({
       data: {

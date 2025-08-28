@@ -22,7 +22,6 @@ const SigninForm = (): JSX.Element => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
-    console.log("BRUH: ", formData.entries)
     await fetch("/api/users", {  method: "POST", body: formData })
   }
 
