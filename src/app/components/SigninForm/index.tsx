@@ -1,11 +1,11 @@
 "use client";
 
 import { JSX, useCallback, useState } from "react";
-import { POST } from "app/api/users/route"
 const SigninForm = (): JSX.Element => {
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const [admin, setAdmin] = useState(false)
 
   const handleSetName = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value)
@@ -17,6 +17,11 @@ const SigninForm = (): JSX.Element => {
 
   const handleSetPassword = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value)
+  }, [])
+
+  const handleSetAdmin = useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
+    const val = (e.target.value === "true")
+    setAdmin(val)
   }, [])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
@@ -62,6 +67,18 @@ const SigninForm = (): JSX.Element => {
               type="password" 
               placeholder="Digite sua senha" 
             />
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="admin">Admin </label>
+            <select
+              name="admin"
+              value={admin ? "true" : "false"}
+              onChange={handleSetAdmin}
+              id="admin"
+            >
+              <option value="true">True</option>
+              <option value="false">False</option>
+            </select>
           </div>
         </div>
         <div className="flex flex-row justify-between mt-5 mb-5">

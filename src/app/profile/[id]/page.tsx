@@ -1,7 +1,7 @@
 "use server"
 
-import prisma from "lib/prisma";
-import ProfileCard from "app/components/ProfileCard";
+import prisma from "@/lib/prisma"
+import ProfileCard from "@/components/ProfileCard"
 
 interface ProfilePageParams {
   params: {
